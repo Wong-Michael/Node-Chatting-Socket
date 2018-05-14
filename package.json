@@ -1,0 +1,11 @@
+{
+  "name": "socket",
+  "version": "1.0.0",
+  "description": "Using sockets to make a game",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Wong",
+  "license": "ISC"
+}

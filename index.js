@@ -40,4 +40,4 @@ io.on('connection', (socket) => {
     //to be filled in
   });
 });
-setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+setInterval(() => io.emit('time', new Date().toTimeString(), "Hello Android from Heroku"), 1000);

@@ -14,30 +14,19 @@ io.on('connection', (socket) => {
   console.log('Client connected' + socket.id);
 
   socket.on('disconnect', () => console.log('Client disconnected'));
+  
 
-  socket.on('game-restart', function(msg) {
-    var id = msg.id;
-    console.log("game-restart: " , msg);
-    console.log("Emitting to", "game-restart-" + id);
-    io.emit('game-restart-' + id, msg);
-   
+  socket.on('New Name', function(msg) {
+    socket.broadcast.emit('New Name', msg.name)
   });
 
   socket.on('chat', function(msg) {
-    var id = msg.id;
-    var username = msg.username;
+    var username = msg.name;
     var text = msg.text;
     console.log("chat: ", msg);
-    io.emit('chat-' + id, msg);
-    //to be filled in
+    io.emit('chat', msg);
+
   });
 
-  socket.on('log', function(msg) {
-    var id = msg.id;
-    var text = msg.text
-    console.log("log obj: " , msg);
-    io.emit('log-' + id, msg);
-    //to be filled in
-  });
 });
 setInterval(() => io.emit('time', new Date().toTimeString(), "Hello Android from Heroku"), 1000);
